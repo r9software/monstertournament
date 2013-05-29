@@ -14,8 +14,6 @@ import javax.servlet.http.HttpSession;
 import data.UtilBasesUsuario;
 
 import bean.UsuarioBean;
-
-import util.Mail;
 import util.Util;
 
 /**
@@ -82,7 +80,7 @@ public class ServletRegistrarse extends HttpServlet {
 		
 		if(UtilBasesUsuario.registrarUsuario(Datos))
 		{
-			Mail.sendMail("Bienvenido", mensaje,Datos.getEmail());
+			//Mail.sendMail("Bienvenido", mensaje,Datos.getEmail());
 			System.out.println("Datos guardados!!!");
 			int numero=0;
 			numero=UtilBasesUsuario.ultimoId();

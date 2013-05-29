@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import util.Mail;
 import bean.UsuarioBean;
 
 import data.UtilBasesJuego;
@@ -75,7 +74,6 @@ public class ServletPerfil extends HttpServlet {
 			try {
 				if(UtilBasesUsuario.UpdateUsuario(Datos))
 				{
-					Mail.sendMail("Datos Modificados", mensaje,Datos.getEmail());
 					System.out.println("Datos guardados!!!");
 						request.getSession().setAttribute("nombreUsuario",Datos.getUsuario() );
 						response.sendRedirect("ServletPortada?id="+Datos.getId());
