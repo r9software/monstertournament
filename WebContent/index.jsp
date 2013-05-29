@@ -203,7 +203,7 @@
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        String regex="-*$#*-";
+        String regex="-*****-";
         List<String> imagenes= new ArrayList<String>();
         imagenes=ArregloDeDatos.ImagenesPie;
 		if(imagenes.size()>0)

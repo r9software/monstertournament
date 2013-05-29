@@ -115,7 +115,7 @@
             <%
             List<String> lista= ArregloDeDatos.TodosUsuarios;
             List<String> listaId= ArregloDeDatos.IdAmigos;
-            String regex="-*$#*-";
+            String regex="-*****-";
             int tama=lista.size();
             int numfinal=Integer.valueOf(session.getAttribute("paginadoFinal").toString());
             int pagina=Integer.valueOf(session.getAttribute("paginaActual").toString());

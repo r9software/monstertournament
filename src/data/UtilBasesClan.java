@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UtilBasesClan {
 
-	private static String regex="-*$#*-";
+	private static String regex="-*****-";
 
 	public static int ultimoId() throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();

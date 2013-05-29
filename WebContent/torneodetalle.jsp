@@ -117,7 +117,7 @@
                  
                 <div id="post_wrapper">
                 <%
-                String regex="-*$#*-";
+                String regex="-*****-";
                 List<String> torneo=ArregloDeDatos.TorneoInfo;
             	List<String> partidas=ArregloDeDatos.PartidasTorneo;
             	String juegoid=torneo.get(0);

@@ -109,7 +109,7 @@
     
     <% 
     //cargamos los datos de las clases estaticas;
-    String regex="-*$#*-"; 
+    String regex="-*****-"; 
     List<String>   UltimosTorneos = new ArrayList<String>();
     List<String>   JuegosUsuario = new ArrayList<String>();
     List<String>   PartidasUsuario = new ArrayList<String>();

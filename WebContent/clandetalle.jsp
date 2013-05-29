@@ -276,7 +276,7 @@
                   <div class="header"><a href="#">Mejores Juegos</a></div>
             <ul>
             <%
-            String regex="-*$#*-";
+            String regex="-*****-";
             List<String> imagenes=ArregloDeDatos.ImagenesPie;
             List<String> miembros=ArregloDeDatos.UsuariosClan;
             if(imagenes.size()>0)

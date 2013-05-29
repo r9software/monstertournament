@@ -52,7 +52,7 @@
     <div id="menu_wrapper">
       <div id="menu_left"></div>
       <ul id="menu">
-        <% String regex="-*$#*-";
+        <% String regex="-*****-";
 					if(session.getAttribute("nombreUsuario")==null){ 
 					
 						System.out.println(session.getAttribute("nombreUsuario"));

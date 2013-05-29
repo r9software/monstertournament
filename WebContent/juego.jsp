@@ -116,7 +116,7 @@
                 	<h2><span>Monster Tournament //</span> Juegos de la comunidad</h2>
                 </div>
                  <%
-                 String regex="-*$#*-";
+                 String regex="-*****-";
 	            List<String> lista= ArregloDeDatos.TodosJuegos;
 	            int tama=lista.size();
 	            int numfinal=Integer.valueOf(session.getAttribute("paginadoFinal").toString());

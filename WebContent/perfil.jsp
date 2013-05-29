@@ -129,7 +129,7 @@
  						<input type="submit" />
  						</form>
                         <% 
-                        String regex="-*$#*-";
+                        String regex="-*****-";
                         if(request.getAttribute("subido")!=null){
  							if(request.getAttribute("subido").toString().equals("true")){
  						%>

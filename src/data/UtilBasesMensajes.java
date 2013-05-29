@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class UtilBasesMensajes {
 
-	private static String regex="-*$#*-";
+	private static String regex="-*****-";
 	public static boolean enviarMensaje(String idamigo, String idusuario,
 			String mensaje, String web, String email, String asunto) throws ClassNotFoundException {
 		// TODO Auto-generated method stub

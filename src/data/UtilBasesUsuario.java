@@ -21,7 +21,7 @@ import bean.UsuarioBean;
 
 
 public class UtilBasesUsuario {
-	private static String regex="-*$#*-";
+	private static String regex="-*****-";
 	public static UsuarioBean comprobarUsuario(String usuario,String Password) throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {

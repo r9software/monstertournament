@@ -112,7 +112,7 @@
             <h2><span>Monster Tournament //</span>TORNEOS</h2>
             </div>
             <%
-            String regex="-*$#*-";
+            String regex="-*****-";
             List<String> lista= ArregloDeDatos.UltimosTorneos;
             int tama=lista.size();
             int numfinal=Integer.valueOf(session.getAttribute("paginadoFinal").toString());

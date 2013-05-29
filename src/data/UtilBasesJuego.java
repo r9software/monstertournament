@@ -12,7 +12,7 @@ import util.ArregloDeDatos;
 public class UtilBasesJuego {
 	
 
-	private static String regex="-*$#*-";
+	private static String regex="-*****-";
 	public static int ultimoId() throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {

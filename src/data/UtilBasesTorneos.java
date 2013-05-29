@@ -20,7 +20,7 @@ import bean.UsuarioBean;
 
 public class UtilBasesTorneos {
 
-	private static String regex="-*$#*-";
+	private static String regex="-*****-";
 
 	public static int ultimoId() throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
