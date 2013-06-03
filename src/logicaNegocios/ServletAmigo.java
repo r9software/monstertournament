@@ -45,6 +45,8 @@ public class ServletAmigo extends HttpServlet {
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					response.sendRedirect("error.jsp");
+					
 				}
 				List<String> lista=ArregloDeDatos.AmigosUsuario;
 				

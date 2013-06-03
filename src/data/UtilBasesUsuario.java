@@ -21,7 +21,7 @@ import bean.UsuarioBean;
 
 
 public class UtilBasesUsuario {
-	private static String regex="-*****-";
+	private static String regex="-.....-";
 	public static UsuarioBean comprobarUsuario(String usuario,String Password) throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
@@ -134,7 +134,7 @@ public class UtilBasesUsuario {
 		}
 
 	}
-	public static boolean cargarIdAmigos(String id) throws ClassNotFoundException {
+	public static boolean cargarIdAmigos(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
@@ -287,7 +287,7 @@ public class UtilBasesUsuario {
 				List<String> lista = new ArrayList<String>();  
 				while(a.next()){
 						dato=""+a.getInt(1)+regex+""+a.getString(2)+regex+""+a.getString(3)+regex+""+a.getInt(4)+regex+""+a.getInt(5)+regex+""+a.getInt(6)+regex+a.getInt(7)+regex+""+a.getInt(8)+regex+a.getString(9);
-						if(!Amistad(a.getInt(1)+""))
+						if(!Amistad(a.getInt(1)))
 						{
 							lista.add(dato);	
 						}
@@ -305,11 +305,11 @@ public class UtilBasesUsuario {
 			}	
 			
 		}
-		public static boolean actualizarAvatar(String attribute, String name) throws ClassNotFoundException {
+		public static boolean actualizarAvatar(int id, String name) throws ClassNotFoundException {
 			ConexionMYSQL conection = new ConexionMYSQL();
 			try {
 				conection.abrirConexion();
-				String test="UPDATE `torneosplay`.`usuario` SET `avatar`='images/avatar/"+name+"' WHERE `id`="+attribute;
+				String test="UPDATE `torneosplay`.`usuario` SET `avatar`='images/avatar/"+name+"' WHERE `id`="+id;
 
 				System.out.println(test);	  	
 				int a=conection.ejecutarUpdate(test);
@@ -322,7 +322,7 @@ public class UtilBasesUsuario {
 			
 		}
 
-		public static boolean CargarDatosUsuario(String id) throws ClassNotFoundException {
+		public static boolean CargarDatosUsuario(int id) throws ClassNotFoundException {
 			// TODO Auto-generated method stub
 			ConexionMYSQL conection = new ConexionMYSQL();
 			try {
@@ -396,7 +396,7 @@ public class UtilBasesUsuario {
 			}
 			
 		}
-		public static boolean Amistad(String id){
+		public static boolean Amistad(int id){
 			List<String> ids=ArregloDeDatos.IdAmigos;
 			for(int x=0;x<ids.size();x++)
 			{
@@ -408,7 +408,7 @@ public class UtilBasesUsuario {
 			
 		}
 
-		public static boolean SolicitarAmistad(String idamigo, String idusuario,
+		public static boolean SolicitarAmistad(int idamigo, int idusuario,
 				String mensaje, String web, String email, String asunto) throws ClassNotFoundException {
 			// TODO Auto-generated method stub
 			ConexionMYSQL conection = new ConexionMYSQL();

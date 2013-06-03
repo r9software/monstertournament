@@ -73,7 +73,7 @@
 						<li><a href="ServletTorneo?listarTorneos=all">Torneos</a></li>
 						<li><a href="ServletUsuario?listarUsuarios=all">Usuarios</a></li>
 						<li><a href="ServletJuego?listarJuegos=all">Juegos</a></li>
-						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesion"); 
+						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesi&oacute;n"); 
 						%></a>
 						</li>
 						
@@ -109,7 +109,7 @@
     
     <% 
     //cargamos los datos de las clases estaticas;
-    String regex="-*****-"; 
+    String regex="-.....-"; 
     List<String>   UltimosTorneos = new ArrayList<String>();
     List<String>   JuegosUsuario = new ArrayList<String>();
     List<String>   PartidasUsuario = new ArrayList<String>();
@@ -322,7 +322,7 @@
           String NombreClan= ArregloDeDatos.clan;
           if(NombreClan.equals("nada"))
           {
-        	  NombreClan="Este usuario aun no tiene un  Clan";
+        	  NombreClan="Este usuario a&uacute;n no tiene un  Clan";
 			%>
              
               <%
@@ -415,32 +415,32 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="alt_example" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podras encontrar a gamers como tu dispuestos
-          a demostrar quien es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
+          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+          a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="alt_example" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        List<String> imagenes= new ArrayList<String>();
-        imagenes=ArregloDeDatos.ImagenesPie;
-		if(imagenes.size()>0)
+        List<String> imagenes2= new ArrayList<String>();
+        imagenes2=ArregloDeDatos.ImagenesPie;
+		if(imagenes2.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(int x=0;x<imagenes.size();x++)
-          { 
-         String[] datos= imagenes.get(x).split(regex);
-         System.out.println(imagenes.get(x));
+          for(int x=0;x<imagenes2.size();x++)
+          {
+         String[] datos= imagenes2.get(x).split(regex);
+         System.out.println(imagenes2.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox" href="ServletJuego?id=<%out.print(idjuego);%>" rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

@@ -70,7 +70,7 @@
 						<li><a href="ServletTorneo?listarTorneos=all">Torneos</a></li>
 						<li><a href="ServletUsuario?listarUsuarios=all">Usuarios</a></li>
 						<li><a href="ServletJuego?listarJuegos=all">Juegos</a></li>
-						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesion"); 
+						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesi&oacute;n"); 
 						%></a>
 						</li>
 						
@@ -112,7 +112,7 @@
             <h2><span>Monster Tournament //</span>TORNEOS</h2>
             </div>
             <%
-            String regex="-*****-";
+            String regex="-.....-";
             List<String> lista= ArregloDeDatos.UltimosTorneos;
             int tama=lista.size();
             int numfinal=Integer.valueOf(session.getAttribute("paginadoFinal").toString());
@@ -147,8 +147,8 @@
                 <!--<div class="comments"> 18 </div> -->
                 <h2><a href="">Crea tu propio torneo</a></h2>
                 <div class="date_n_author">Organiza tus partidas</a> </div>
-                <p>Despues de organizarlo invita a todos tus amigos<br>
-                Numero de lugares: Define los participantes<br>
+                <p>Despu&eacute;s de organizarlo invita a todos tus amigos<br>
+                N&uacute;mero de lugares: Define los participantes<br>
                  <br>
                 Premio: Solo tu puedes decirlo.
                 
@@ -200,7 +200,7 @@
                 <h2><a href=""><%out.print(nombretorneo); %></a></h2>
                 <div class="date_n_author">Administrado por-<a href="ServletAdmin?id=<%out.print(adminid); %>"><%out.print(admin); %></a> </div>
                 <p><%out.print(torneodescripcion); %><br>
-                Numero de lugares: <%out.print(torneoparticipantes); %><br>
+                N&uacute;mero de lugares: <%out.print(torneoparticipantes); %><br>
                 Usuario Creador: <a href="ServletUsuario?id=<%out.print(usuarioid); %>"><%out.print(usuario); %></a> <br>
                 Premio: <%out.print(premio); %>
                 
@@ -294,30 +294,32 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="alt_example" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podras encontrar a gamers como tu dispuestos
-          a demostrar quien es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
+          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+          a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="alt_example" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-		if(imagenes.size()>0)
+        List<String> imagenes2= new ArrayList<String>();
+        imagenes2=ArregloDeDatos.ImagenesPie;
+		if(imagenes2.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(int xx=0;xx<imagenes.size();xx++)
+          for(x=0;x<imagenes2.size();x++)
           {
-         String[] datos= imagenes.get(xx).split(regex);
-         System.out.println(imagenes.get(xx));
+         String[] datos= imagenes2.get(x).split(regex);
+         System.out.println(imagenes2.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox" href="/ServletJuego?id=<%out.print(idjuego);%>" rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

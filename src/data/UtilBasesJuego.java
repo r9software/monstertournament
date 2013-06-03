@@ -12,7 +12,7 @@ import util.ArregloDeDatos;
 public class UtilBasesJuego {
 	
 
-	private static String regex="-*****-";
+	private static String regex="-.....-";
 	public static int ultimoId() throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
@@ -82,7 +82,7 @@ public class UtilBasesJuego {
 		}
 
 	}
-	public static boolean cargarIdJuegos(String id) throws ClassNotFoundException {
+	public static boolean cargarIdJuegos(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
@@ -107,7 +107,7 @@ public class UtilBasesJuego {
 
 	}
 
-	public static boolean cargarJuego(String id) throws ClassNotFoundException {
+	public static boolean cargarJuego(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
@@ -144,11 +144,11 @@ public class UtilBasesJuego {
 		}
 	}
 
-	public static boolean tengojuego(String id) {
+	public static boolean tengojuego(int id) {
 		List<String> lista=ArregloDeDatos.juegosUsuario;
 		for(int x=0;x<lista.size();x++) 
 		{
-			if(id.equals(lista.get(x)))
+			if(String.valueOf(id).equals(lista.get(x)))
 				return true;
 		}	
 		return false;

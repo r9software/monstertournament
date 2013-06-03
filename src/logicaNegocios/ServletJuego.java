@@ -42,6 +42,7 @@ public class ServletJuego extends HttpServlet {
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					response.sendRedirect("error.jsp");
 				}
 				List<String> lista=ArregloDeDatos.TodosJuegos;
 				
@@ -61,12 +62,12 @@ public class ServletJuego extends HttpServlet {
 			}
 		}
 		else if(request.getParameter("id")!=null){
-			String id=request.getParameter("id");
+			int id=Integer.valueOf(request.getParameter("id"));
 			try {
 				System.out.println("Voy a cargar todo juego");
 				UtilBasesJuego.cargarJuego(id);
 				UtilBasesJuego.ultimos10Juegos(); 
-				UtilBasesJuego.cargarIdJuegos(request.getSession().getAttribute("idUsuario").toString());
+				UtilBasesJuego.cargarIdJuegos(Integer.valueOf(request.getSession().getAttribute("idUsuario").toString()));
 				if(UtilBasesJuego.tengojuego(id)){
 					request.getSession().setAttribute("tengoJuego","si");
 				}
@@ -77,6 +78,7 @@ public class ServletJuego extends HttpServlet {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
 			response.sendRedirect("portadajuego.jsp");
 		}

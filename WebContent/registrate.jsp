@@ -68,11 +68,11 @@
 					<li><a href="index.jsp">Conectate</a>
 					</li>
 					
-						<li><a href="registrate.jsp">Registrate</a></li>
+						<li><a href="registrate.jsp">Reg&iacute;strate</a></li>
 					<%}
 					else{ %>
 						<li ><a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><%out.print(session.getAttribute("nombreUsuario")); %></a></li>
-						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesion"); 
+						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesi&oacute;n"); 
 						response.sendRedirect("ServletPortada?id="+session.getAttribute("idUsuario"));
 						%></a>
 						</li>
@@ -113,7 +113,7 @@
        <!-- Left wrapper Start -->
         <div id="left_wrapper">
                 <div class="header">
-                	<h2><span>MonsterTournament</span> <a href="./post_list.html">Registrate</a></h2>
+                	<h2><span>MonsterTournament</span> <a href="./post_list.html">Reg&iacute;strate</a></h2>
                 </div>
                  
                 <div id="post_wrapper">
@@ -121,7 +121,7 @@
                     <!-- Leave a response Start -->
                     <div id="response" class="contact_form">
                     	
-                        	<h1 class="title">Registrate para Ingresar</h1>
+                        	<h1 class="title">Reg&iacute;strate para Ingresar</h1>
                             <form id="form" action="ServletRegistrarse" method= "get" autocomplete="on" name="f1"> 
                                 <div class="info-box"> 
                                 <h5> 
@@ -167,7 +167,7 @@
                                 <div class="info-box"> 
                                 <h5>
                                 <img src='captcha.jsp' width=200 height=50><br>
-                                <label for="usernamesignup" class="uname" data-icon="u">Introduce el codigo </label></h5>
+                                <label for="usernamesignup" class="uname" data-icon="u">Introduce el c&oacute;digo </label></h5>
                                     <input id="usernamesignup" name="captcha" required="required" type="text" placeholder="Introduce el Captcha"/>
                                 </div>
                                 <a class="button purple" style="opacity: 1; " > 
@@ -175,7 +175,7 @@
                                 </a>
                                 <p class="change_link">  
 									&iquest;Ya estas registrado?
-									<a href="index.jsp"> Inicia Sesion </a>
+									<a href="index.jsp"> Inicia Sesi&oacute;n </a>
 								</p>
                             </form>
                         
@@ -195,7 +195,7 @@
             
                 
                <div class="normal">
-                   <div class="header"><a href="#">Unete en facebook!</a></div>
+                   <div class="header"><a href="#">&Uacute;nete en facebook!</a></div>
                    <div class="body"><div class="fb-like-box" style="border:none; overflow:hidden; width:300px; height:290px;" data-href="https://www.facebook.com/konami" data-width="292" data-show-faces="true" data-stream="true" data-show-border="true" data-header="true"></div>
                    </div>
                </div>
@@ -224,33 +224,33 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="alt_example" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podras encontrar a gamers como tu dispuestos
-          a demostrar quien es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
+          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+          a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="alt_example" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        String regex="-*****-";
-        List<String> imagenes= new ArrayList<String>();
-        imagenes=ArregloDeDatos.ImagenesPie;
-		if(imagenes.size()>0)
+        String regex="-.....-";
+        List<String> imagenes2= new ArrayList<String>();
+        imagenes2=ArregloDeDatos.ImagenesPie;
+		if(imagenes2.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(int x=0;x<imagenes.size();x++)
+          for(int x=0;x<imagenes2.size();x++)
           {
-         String[] datos= imagenes.get(x).split(regex);
-         System.out.println(imagenes.get(x));
+         String[] datos= imagenes2.get(x).split(regex);
+         System.out.println(imagenes2.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox" href="ServletJuego?id=<%out.print(idjuego);%>" rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

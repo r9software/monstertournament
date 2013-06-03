@@ -44,6 +44,7 @@ public class ServletClan extends HttpServlet {
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					response.sendRedirect("error.jsp");
 				}
 				List<String> lista=ArregloDeDatos.TodosClanes;
 				
@@ -65,7 +66,7 @@ public class ServletClan extends HttpServlet {
 		else if(request.getParameter("id")!=null){
 			try{
 				int id=Integer.valueOf(request.getParameter("id"));
-				String idowner=UtilBasesClan.cargarCreadorClan(""+id);
+				int idowner=UtilBasesClan.cargarCreadorClan(id);
 					if(!request.getSession().getAttribute("idUsuario").toString().equals(idowner))
 					{
 					UtilBasesJuego.ultimos10Juegos();

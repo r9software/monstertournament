@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UtilBasesClan {
 
-	private static String regex="-*****-";
+	private static String regex="-.....-";
 
 	public static int ultimoId() throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
@@ -117,11 +117,11 @@ public class UtilBasesClan {
 		
 	}
 
-	public static String cargarCreadorClan(String string) throws ClassNotFoundException {
+	public static int cargarCreadorClan(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
-			String test= "select creador from clan where id="+string;
+			String test= "select creador from clan where id="+id;
 			System.out.println(test);		
 			ResultSet a=conection.ejecutarQuery(test);
 			List<String> lista = new ArrayList<String>();
@@ -133,11 +133,11 @@ public class UtilBasesClan {
 			//for(int x=0;x<1000;x++)
 				//lista.add(dato);
 				util.ArregloDeDatos.InfoClan=lista;
-			return dato;
+			return Integer.valueOf(dato);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "";
+			return 0;
 		}
 	}
 }

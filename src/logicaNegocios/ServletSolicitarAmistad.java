@@ -42,7 +42,7 @@ public class ServletSolicitarAmistad extends HttpServlet {
 				String web= request.getParameter("web");
 				String email=request.getParameter("email");
 				String asunto=request.getParameter("name");
-				data.UtilBasesUsuario.SolicitarAmistad(idamigo,idusuario,mensaje,web,email,asunto);
+				data.UtilBasesUsuario.SolicitarAmistad(idAmigo,idUsuario,mensaje,web,email,asunto);
 				response.sendRedirect("ServletPortada?id="+idUsuario);
 				
 			}catch(Exception e){

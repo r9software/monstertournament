@@ -40,13 +40,14 @@ public class ServletUsuario extends HttpServlet {
 			if(valor.equals("all")){ 
 				System.out.println("Im in to all usuarios");
 				try {
-					String id=request.getSession().getAttribute("idUsuario").toString();
+					int id=Integer.valueOf(request.getSession().getAttribute("idUsuario").toString());
 					UtilBasesUsuario.cargarIdAmigos(id);
 					UtilBasesUsuario.allUsuarios();
 					UtilBasesJuego.ultimos10Juegos();
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					response.sendRedirect("error.jsp");
 				}
 				List<String> lista=ArregloDeDatos.TodosUsuarios;
 				

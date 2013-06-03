@@ -4,8 +4,8 @@ import java.sql.SQLException;
 
 public class UtilBasesMensajes {
 
-	private static String regex="-*****-";
-	public static boolean enviarMensaje(String idamigo, String idusuario,
+	private static String regex="-.....-";
+	public static boolean enviarMensaje(int idamigo, int idusuario,
 			String mensaje, String web, String email, String asunto) throws ClassNotFoundException {
 		// TODO Auto-generated method stub
 		//INSERT INTO `torneosplay`.`mensaje_amigo`

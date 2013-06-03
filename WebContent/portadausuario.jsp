@@ -74,7 +74,7 @@
 						<li><a href="ServletTorneo?listarTorneos=all">Torneos</a></li>
 						<li><a href="ServletUsuario?listarUsuarios=all">Usuarios</a></li>
 						<li><a href="ServletJuego?listarJuegos=all">Juegos</a></li>
-						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesion"); 
+						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesi&oacute;n"); 
 						%></a>
 						</li>
 						
@@ -110,7 +110,7 @@
     
     <% 
     //cargamos los datos de las clases estaticas;
-    String regex="-*****-";
+    String regex="-.....-";
     List<String>   UltimosTorneos = new ArrayList<String>();
     List<String>   JuegosUsuario = new ArrayList<String>();
     List<String>   PartidasUsuario = new ArrayList<String>();
@@ -149,9 +149,15 @@
     %>
     </div><% 
 			    
-    }
-    
-    %>
+    }else{%>
+	 <div id="da-slider" class="da-slider">
+	  <div><h1 style="color:white;">&iexcl;Este Usuario aun no tiene torneos!</h1></div>
+
+	 <img src="system/default/notorneos.png"></img>
+	 </div>
+	 <%
+}
+%>
       
       
     
@@ -160,11 +166,12 @@
     <div class="top_shadow"></div>
     
     <!--********************************************* Hot news start *********************************************-->
+    
+    <div id="hot_news">
      <%
       		if(PartidasUsuario.size()>0){
 		    	  	
 	%>
-    <div id="hot_news">
       <div class="header">
         <h1><span> Partidas de <%out.print(session.getAttribute("nombreAmigo")); %>//</span>Revisa la informacion de la Partida</h1>
       </div>
@@ -199,25 +206,33 @@
        <%
 		    	  }%>
       </ul>
-    </div>
     <% 
-		 }
-       %>
+		 }else{
+		      	%>
+		      	<div class="header">
+		        <h1><span>Tus Partidas //</span>A&uacute;n no tiene partidas</h1>
+		      	</div>
+		      	<% 	
+		      		}
+		       %> 
+    </div>
+    
 
       
      
     <!--********************************************* Hot news end *********************************************--> 
     
     <!--********************************************* Main start *********************************************-->
-    <%
-      		if(JuegosUsuario.size()>0){
-		    	  	%>
+    
     <div id="main_news_wrapper">
  
        <div id="row"> 
         <!-- Left wrapper Start -->
         
         <div id="left_wrapper">
+        <%
+      		if(JuegosUsuario.size()>0){
+		    	  	%>
         <div class="header">
             <h2><span>Juegos de <%out.print(session.getAttribute("nombreAmigo")); %>//</span> Mas info.</h2>
           </div>
@@ -262,10 +277,17 @@
           
           <div class="clear"></div>
           
-           </div>
+           
            <% 
-			      }
-		    	   %>
+			      }else{
+		      			%>
+		      			<div class="header">
+		            <h2><span>Tus Juegos//</span>A&uacute;n no tiene juegos</h2>
+		          </div>
+		      			<%
+		      		}
+				    	   %>
+		</div>
         <!-- Left wrapper end --> 
          
         <!-- Right wrapper Start -->
@@ -274,11 +296,11 @@
             <input type="text" onblur="if(this.value =='') this.value='search'" onfocus="if (this.value == 'search') this.value=''" value="search" name="s" class="required" id="s" />
             <input type="button" />
           </div> -->
-           <%
+           
+          		<div class="review">
+          <%
             if(AmigosUsuario.size()>0){
             	%>
-          		<div class="review">
-          
 		            <div class="header"><a href="#">Amigos de <%out.print(session.getAttribute("nombreAmigo")); %></a></div>
 		            <ul>
 		           <% 
@@ -312,10 +334,16 @@
 			            <%
 	    	  	}}%>
             </ul>
-          </div>
-          <% 
+            <% 
+	    	  }else{
+	    		  %>
+	    		  <div class="header"><a href="#">A&uacute;n no tiene amigos</a></div>
+	    		  <%
+	    		  
 	    	  }
-            %>  
+            %> 
+          </div>
+          
           
           <div class="advert">
             <a href="http://themeforest.net/user/Skywarrior" target="_blank"><img alt="alt_example" src="./images/advert_r.jpg" border="0" /></a>
@@ -324,7 +352,7 @@
           String NombreClan= ArregloDeDatos.clan;
           if(NombreClan.equals("nada"))
           {
-        	  NombreClan="Este usuario aun no tiene un  Clan";
+        	  NombreClan="Este usuario a&uacute;n no tiene un  Clan";
 			%>
              
               <%
@@ -417,37 +445,37 @@
     <!--********************************************* Main advert end *********************************************--> 
     
     <!--********************************************* Footer start *********************************************-->
-    <div id="footer">
+   <div id="footer">
     <div class="row">
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="alt_example" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podras encontrar a gamers como tu dispuestos
-          a demostrar quien es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
+          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+          a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="alt_example" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        List<String> imagenes= new ArrayList<String>();
-        imagenes=ArregloDeDatos.ImagenesPie;
-		if(imagenes.size()>0)
+        List<String> imagenes2= new ArrayList<String>();
+        imagenes2=ArregloDeDatos.ImagenesPie;
+		if(imagenes2.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(int x=0;x<imagenes.size();x++)
+          for(int x=0;x<imagenes2.size();x++)
           {
-         String[] datos= imagenes.get(x).split(regex);
-         System.out.println(imagenes.get(x));
+         String[] datos= imagenes2.get(x).split(regex);
+         System.out.println(imagenes2.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox" href="ServletJuego?id=<%out.print(idjuego);%>" rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

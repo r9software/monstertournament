@@ -45,6 +45,7 @@ public class ServletTorneo extends HttpServlet {
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					response.sendRedirect("error.jsp");
 				}
 				List<String> lista=ArregloDeDatos.UltimosTorneos;
 				
@@ -64,9 +65,9 @@ public class ServletTorneo extends HttpServlet {
 			}
 		}
 		else if(request.getParameter("id")!=null){
-			String id = null;
+			int id = 0;
 			try {
-				id=request.getParameter("id");
+				id=Integer.valueOf(request.getParameter("id"));
 				UtilBasesTorneos.cargarTorneo(id);
 				UtilBasesJuego.ultimos10Juegos();
 				if(UtilBasesTorneos.activo(id)){
@@ -84,6 +85,7 @@ public class ServletTorneo extends HttpServlet {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
 			
 			

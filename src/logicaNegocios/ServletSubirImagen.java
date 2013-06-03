@@ -98,7 +98,7 @@ public class ServletSubirImagen extends HttpServlet {
 						 // escribimos el fichero colgando del nuevo path
 						 actual.write(fichero);
 						 rutaFichero=fichero.getName();
-						 UtilBasesUsuario.actualizarAvatar(request.getSession().getAttribute("idUsuario").toString(),fichero.getName());
+						 UtilBasesUsuario.actualizarAvatar(Integer.valueOf(request.getSession().getAttribute("idUsuario").toString()),fichero.getName());
 						  request.getSession().setAttribute("avatarUsuario","images/avatar/"+fichero.getName());
 					  flag = true;
 					  
@@ -106,6 +106,7 @@ public class ServletSubirImagen extends HttpServlet {
 			 }
 			 } catch (Exception e) {
 			 out.println(e.getMessage());
+			 response.sendRedirect("error.jsp");
 			 }
 
 			 //////////////////////////////////////////////////////////////////////////////////////

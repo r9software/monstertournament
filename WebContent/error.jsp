@@ -58,7 +58,7 @@
       <div id="menu_left"></div>
       <ul id="menu">
       <% 
-      String regex="-*****-";
+      String regex="-.....-";
 					if(session.getAttribute("nombreUsuario")==null){ 
 					
 						System.out.println(session.getAttribute("nombreUsuario"));
@@ -71,7 +71,7 @@
 					<%}
 					else{ %>
 						<li ><a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><%out.print(session.getAttribute("nombreUsuario")); %></a></li>
-						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesion"); 
+						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesi&oacute;n"); 
 						%></a>
 						</li>
 						<% 
@@ -117,13 +117,13 @@
                 
                 
                     <!-- Leave a response Start -->
-                    <h2>             	Sentimos informarle que ocurrio un error, regrese e intentelo nuevamente
+                    <h2>             	Sentimos informarte que ocurri&oacute; un error, regrese e int&eacute;ntelo nuevamente
 						<% if(session.getAttribute("idUsuario")==null){ 
-						out.print("<br><a href='index.jsp'>Ve al inicio aqui</a>");
+						out.print("<br><a href='index.jsp'>Ve al inicio aqu&iacute;</a>");
 						}
 						else
 						{
-						out.print("<br><span><a href='./ServletPortada?id="+session.getAttribute("idUsuario")+"'>Ve a tu perfil aqui</a></span>");
+						out.print("<br><span><a href='./ServletPortada?id="+session.getAttribute("idUsuario")+"'>Ve a tu perfil aqu&iacute;</a></span>");
 						}
 									%>
 				              </h2>          
@@ -143,7 +143,7 @@
             
                 
                <div class="normal">
-                   <div class="header"><a href="#">Unete en facebook!</a></div>
+                   <div class="header"><a href="#">&Uacute;nete en facebook!</a></div>
                    <div class="body"><div class="fb-like-box" style="border:none; overflow:hidden; width:300px; height:290px;" data-href="https://www.facebook.com/konami" data-width="292" data-show-faces="true" data-stream="true" data-show-border="true" data-header="true"></div>
                    </div>
                </div>

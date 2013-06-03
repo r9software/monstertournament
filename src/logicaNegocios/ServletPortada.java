@@ -58,7 +58,7 @@ public class ServletPortada extends HttpServlet {
 		UtilBasesUsuario.cargarAmigos(id);
 		//juegos
 		UtilBasesUsuario.cargarJuegos(id);
-		UtilBasesUsuario.cargarIdAmigos(""+id);
+		UtilBasesUsuario.cargarIdAmigos(id);
 		//clan
 		UtilBasesUsuario.cargarClan(id);
 		

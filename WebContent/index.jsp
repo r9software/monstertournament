@@ -64,14 +64,14 @@
 						System.out.println(session.getAttribute("nombreUsuario"));
 					%>
 					
-					<li><a href="index.jsp">Conectate</a>
+					<li><a href="index.jsp">Con&eacute;ctate</a>
 					</li>
 					
-						<li><a href="registrate.jsp">Registrate</a></li>
+						<li><a href="registrate.jsp">Reg&iacute;strate</a></li>
 					<%}
 					else{ %>
 						<li ><a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><%out.print(session.getAttribute("nombreUsuario")); %></a></li>
-						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesion"); 
+						<li ><a href="ServletPortada?logout=true"><%out.print("Cerrar Sesi&oacute;n"); 
 						response.sendRedirect("ServletPortada?id="+session.getAttribute("idUsuario"));
 						%></a>
 						</li>
@@ -112,7 +112,7 @@
        <!-- Left wrapper Start -->
         <div id="left_wrapper">
                 <div class="header">
-                	<h2><span>MonsterTournament </span> <a href="">Inicia Sesion </a><span>
+                	<h2><span>MonsterTournament </span> <a href="">Inicia Sesi&oacute;n </a><span>
                 	<%
                 	if(session.getAttribute("errorLogin")!=null)
 						
@@ -124,8 +124,8 @@
                 
                     <!-- Leave a response Start -->
                     <div id="response" class="contact_form">
-                    	<h1>Inicia Sesion</h1>
-                        <p>Para poder disfrutar de todos las caracteristicas del sistema ingresa aqui</p>
+                    	<h1>Inicia Sesi&oacute;n</h1>
+                        <p>Para poder disfrutar de todos las caracter&iacute;sticas del sistema, ingresa aqu&iacute;</p>
                             <form  id='form' action='ServletLogin' method='get' autocomplete="on"> 
                             <div class="form_left">
                                 <div><h5>
@@ -136,15 +136,15 @@
                                   <h5><label class="" > Tu contrase&ntilde;a:</label></h5>
                                     <input name="pwd" required="required" type="password" placeholder="ejemplo:  X8df!90EO" /> 
                                 </div>
-                                <div class="form_submit"><input type="submit" value="Iniciar Sesion" class="read_more2" />
+                                <div class="form_submit"><input type="submit" value="Iniciar Sesi&oacute;n" class="read_more2" />
                             	</div>
                                 <p>
                                 <a href="recuperar.jsp">&iquest Perdiste tu contrase&ntilde;a?</a>
                                 </p>
                                 
                                 
-									&iquest; Aun no eres miembro?
-									<a href="registrate.jsp">Unete</a>
+									&iquest; A&uacute;n no eres miembro?
+									<a href="registrate.jsp">&uacute;nete</a>
 								</div>
                             </form>
                         
@@ -164,7 +164,7 @@
             
                 
                <div class="normal">
-                   <div class="header"><a href="#">Unete en facebook!</a></div>
+                   <div class="header"><a href="#">&Uacute;nete en facebook!</a></div>
                    <div class="body"><div class="fb-like-box" style="border:none; overflow:hidden; width:300px; height:290px;" data-href="https://www.facebook.com/konami" data-width="292" data-show-faces="true" data-stream="true" data-show-border="true" data-header="true"></div>
                    </div>
                </div>
@@ -193,8 +193,8 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podras encontrar a gamers como tu dispuestos
-          a demostrar quien es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
+          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+          a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
           <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
       </div>
@@ -203,7 +203,7 @@
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        String regex="-*****-";
+        String regex="-.....-";
         List<String> imagenes= new ArrayList<String>();
         imagenes=ArregloDeDatos.ImagenesPie;
 		if(imagenes.size()>0)

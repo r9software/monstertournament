@@ -34,13 +34,14 @@ public class ServletPerfil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		if(request.getParameter("id")!=null){
-			String id=request.getSession().getAttribute("idUsuario").toString();
+			int id=Integer.valueOf(request.getSession().getAttribute("idUsuario").toString());
 			try {
 				UtilBasesUsuario.CargarDatosUsuario(id);
 				UtilBasesJuego.ultimos10Juegos();
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
 			response.sendRedirect("perfil.jsp");
 			
@@ -81,6 +82,7 @@ public class ServletPerfil extends HttpServlet {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
 			
 		}

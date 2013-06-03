@@ -43,7 +43,7 @@ public class ServletEnviarMensaje extends HttpServlet {
 				String web= request.getParameter("web");
 				String email=request.getParameter("email");
 				String asunto=request.getParameter("name");
-				data.UtilBasesMensajes.enviarMensaje(idamigo,idusuario,mensaje,web,email,asunto);
+				data.UtilBasesMensajes.enviarMensaje(idAmigo,idUsuario,mensaje,web,email,asunto);
 				response.sendRedirect("ServletPortada?id="+idUsuario);
 			}catch(Exception e){
 				response.sendRedirect("error.jsp");

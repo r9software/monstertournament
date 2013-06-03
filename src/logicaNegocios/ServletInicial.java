@@ -37,6 +37,7 @@ public class ServletInicial extends HttpServlet {
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					response.sendRedirect("error.jsp");
 				}
 			response.sendRedirect("index.jsp");
 		}

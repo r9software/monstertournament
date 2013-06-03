@@ -20,7 +20,7 @@ import bean.UsuarioBean;
 
 public class UtilBasesTorneos {
 
-	private static String regex="-*****-";
+	private static String regex="-.....-";
 
 	public static int ultimoId() throws ClassNotFoundException{
 		ConexionMYSQL conection = new ConexionMYSQL();
@@ -105,7 +105,7 @@ public class UtilBasesTorneos {
 	//cargarPartidasid
 	//select tipo.nombre,usuario.id,usuario.nombre,partida.fecha, partida.participantes,partida.ronda from ((partida join torneo on partida.torneo_id=torneo.id) join usuario on partida.ganador=usuario.id)join tipo on partida.tipo=tipo.id where torneo.id=1;
 
-	public static boolean activo(String id) throws ClassNotFoundException {
+	public static boolean activo(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
@@ -126,7 +126,7 @@ public class UtilBasesTorneos {
 		}
 	}
 
-	public static boolean cargarPartidas(String id) throws ClassNotFoundException {
+	public static boolean cargarPartidas(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
@@ -159,7 +159,7 @@ public class UtilBasesTorneos {
 	}
 
 
-	public static boolean cargarTorneo(String id) throws ClassNotFoundException {
+	public static boolean cargarTorneo(int id) throws ClassNotFoundException {
 		ConexionMYSQL conection = new ConexionMYSQL();
 		try {
 			conection.abrirConexion();
