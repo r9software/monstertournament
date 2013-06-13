@@ -1,4 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="util.ArregloDeDatos,java.util.ArrayList,java.util.List"
+
+%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -32,7 +35,7 @@
 <div id="main_wrapper">
 
     <!--********************************************* Logo Start *********************************************-->
-    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png"  /></a>
+    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png" height="165px" width="315px"  /></a>
       <div id="social_ctn"> 
       
       <a class="social_t"><img alt="alt_example" src="./images/social_tleft.png" /></a> 
@@ -167,32 +170,46 @@
     <!--********************************************* Main advert end *********************************************--> 
 
     <!--********************************************* Footer start *********************************************-->
-    <div id="footer">
+      <div id="footer">
     <div class="row">
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="alt_example" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Aqui va todo el about.</p>
-          <img alt="alt_example" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+       <p>   <img alt="juego" src="./images/about_img.jpg" align="left" style="margin: 0px 15px 5px 0px; height:120px; width:100%;">Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+          a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
+          Disfruta compitiendo.</p>
+          <img alt="juego" src="./images/monster_logo_small.png" style="margin:11px 0px 0px 55px;" height="50px" width="105px"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
-        <div class="header"><a href="#">Ultimos Torneos</a></div>
+        <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
+        <%
+       List<String> imagenes= new ArrayList<String>();
+        imagenes=ArregloDeDatos.ImagenesPie;
+		if(imagenes.size()>0)
+		{
+        	%>
           <ul id="l_media_list">
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
-            <li><a class="shadowbox" href="./images/media/full/1.jpg" rel="gallery" ><img alt="alt_example" src="./images/media/thumb/1.jpg" /></a></li>
+          <%
+          for(int x=0;x<imagenes.size();x++)
+          {
+         String[] datos= imagenes.get(x).split(regex);
+         System.out.println(imagenes.get(x));
+         String idjuego=datos[0];
+         String nombre= datos[1];
+         
+          %>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.png" height="204px" height="166px" /></a></li>
+            <%
+            }
+          	%>
           </ul>
+        <%   
+		}
+		 %>  
         </div>
-      </div>
+      </div>   
       <div class="clear"></div>
     </div>
     </div>

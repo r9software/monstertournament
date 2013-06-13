@@ -33,7 +33,7 @@
 <div id="main_wrapper">
 
     <!--********************************************* Logo Start *********************************************-->
-    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png"  /></a>
+    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png" height="165px" width="315px"  /></a>
       <div id="social_ctn"> 
       
       <a class="social_t"><img alt="alt_example" src="./images/social_tleft.png" /></a> 
@@ -193,10 +193,10 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+       <p>   <img alt="juego" src="./images/about_img.jpg" align="left" style="margin: 0px 15px 5px 0px; height:120px; width:100%;">Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
           a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/monster_logo_small.png" style="margin:11px 0px 0px 55px;" height="50px" width="105px"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
@@ -219,7 +219,7 @@
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.png" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

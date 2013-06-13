@@ -24,7 +24,7 @@
   <div id="main_wrapper"> 
     
     <!--********************************************* Logo Start *********************************************-->
-    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png"  /></a>
+    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png" height="165px" width="315px"  /></a>
       <div id="social_ctn"> 
       
       <a class="social_t"><img alt="alt_example" src="./images/social_tleft.png" /></a> 
@@ -63,7 +63,7 @@
 					response.sendRedirect("index.jsp");
 					}
 					else{ %>
-						<li><a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><img src="system/<%out.print(session.getAttribute("avatarUsuario")); %>" height=100px width=100px></img></a></li>
+						<a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><img src="system/<%out.print(session.getAttribute("avatarUsuario")); %>"  height=100px width=100px style="position:relative;bottom:50%;"></img></a>
 						<li ><a href="ServletPerfil?id=<%out.print(session.getAttribute("idUsuario")); %>"><%out.print(session.getAttribute("nombreUsuario")); %></a></li>
 						<li><a href="ServletAmigo?listarAmigos=<%out.print(session.getAttribute("idUsuario"));%>">Amigos</a></li>
 						<li><a href="ServletClan?listarClanes=all">Clanes</a></li>
@@ -186,7 +186,7 @@
            
             <li>
              
-              <div class="image"><a href="./ServletJuego?id=<%out.print(idjuego); %>"><img alt="<%out.print(nombrejuego); %>" src="./system/juego/<%out.print(idjuego); %>.jpg" height="250px" width="250px" /></a></div>
+              <div class="image"><a href="./ServletJuego?id=<%out.print(idjuego); %>"><img alt="<%out.print(nombrejuego); %>" src="./system/juego/<%out.print(idjuego); %>.png" height="250px" width="250px" /></a></div>
               
             <!--
               <ul class="social_share">
@@ -207,7 +207,7 @@
                 
                 
                 </p>
-                <a href="./ServletTorneo?id=<%out.print(idtorneo); %>" class="read_more2">&iexcl;Ve el torneo!</a> </div>
+                <a href="./ServletTorneo?id=<%out.print(idtorneo); %>" class="read_more2">&iexcl;Ver m&aacute;s!</a> </div>
                 <div class="clear">
                 </div>
    
@@ -254,7 +254,7 @@
                     String nombre= datos[1];
 			%>
               <li>
-                <div class="img"><a href="ServletJuego?id=<%out.print(idjuego);%>"><img alt="alt_example" src="./system/juego/<%out.print(idjuego);%>-2.jpg" /></a></div>
+                <div class="img"><a href="ServletJuego?id=<%out.print(idjuego);%>"><img alt="alt_example" src="./system/juego/<%out.print(idjuego);%>-2.png" /></a></div>
                 <div class="info"> <a href="./post_game.html"><%out.print(nombre);%></a><br/>
                   <small>&iexcl;Revisalo!</small><br/>
                   <img alt="alt_example" src="./images/stars.png" /> </div>
@@ -294,32 +294,32 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+       <p>   <img alt="juego" src="./images/about_img.jpg" align="left" style="margin: 0px 15px 5px 0px; height:120px; width:100%;">Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
           a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/monster_logo_small.png" style="margin:11px 0px 0px 55px;" height="50px" width="105px"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        List<String> imagenes2= new ArrayList<String>();
-        imagenes2=ArregloDeDatos.ImagenesPie;
-		if(imagenes2.size()>0)
+       imagenes= new ArrayList<String>();
+        imagenes=ArregloDeDatos.ImagenesPie;
+		if(imagenes.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(x=0;x<imagenes2.size();x++)
+          for(x=0;x<imagenes.size();x++)
           {
-         String[] datos= imagenes2.get(x).split(regex);
-         System.out.println(imagenes2.get(x));
+         String[] datos= imagenes.get(x).split(regex);
+         System.out.println(imagenes.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.png" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

@@ -25,7 +25,7 @@
 <div id="main_wrapper">
 
     <!--********************************************* Logo Start *********************************************-->
-    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png"  /></a>
+    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png" height="165px" width="315px"  /></a>
       <div id="social_ctn"> 
       
       <a class="social_t"><img alt="alt_example" src="./images/social_tleft.png" /></a> 
@@ -47,7 +47,7 @@
     <div id="main_in">  
       
     <!--********************************************* Mainmenu Start *********************************************-->
-    <div id="menu_wrapper">
+   <div id="menu_wrapper">
       <div id="menu_left"></div>
       <ul id="menu">
          <% 
@@ -64,7 +64,7 @@
 					response.sendRedirect("index.jsp");
 					}
 					else{ %>
-						<li><a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><img src="system/<%out.print(session.getAttribute("avatarUsuario")); %>" height=100px width=100px></img></a></li>
+						<a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><img src="system/<%out.print(session.getAttribute("avatarUsuario")); %>"  height=100px width=100px style="position:relative;bottom:50%;"></img></a>
 						<li ><a href="ServletPerfil?id=<%out.print(session.getAttribute("idUsuario")); %>"><%out.print(session.getAttribute("nombreUsuario")); %></a></li>
 						<li><a href="ServletAmigo?listarAmigos=<%out.print(session.getAttribute("idUsuario"));%>">Amigos</a></li>
 						<li><a href="ServletClan?listarClanes=all">Clanes</a></li>
@@ -100,7 +100,6 @@
       <div id="menu_right"></div>
       <div class="clear"></div>
     </div>
-    
     <!--********************************************* Mainmenu end *********************************************--> 
         
         
@@ -132,7 +131,7 @@
                 	<div id="header"> 
                         <div class="info">
                             
-                            <h2><%out.print(nombreclan); %></h2>
+                            <h2 ><%out.print(nombreclan); %></h2>
                             <div class="date_n_author">Creado por <a href="ServletUsuario?id=<%out.print(idCreador); %>"><%out.print(usuario); %></a></div>
                             
                         </div>
@@ -149,7 +148,7 @@
                     <div id="body">
                     	
                         <div class="post-review">
-                        	<h2><%out.print(nombreclan); %></h2>
+                        	<h2 style="padding-left: 10%;padding-bottom: 7%;"><%out.print(nombreclan); %></h2>
 							<!-- <div class="overall-score"><img alt="alt_example" src="./images/post/stars/big.png" /></div>
                             <ul>
                                 <li>Gameplay <span class="score"><img alt="alt_example" src="./images/post/stars/3.png" /></span></li>
@@ -289,7 +288,7 @@
                     String nombre= datos[1]; 
 			%>
               <li>
-                <div class="img"><a href="ServletJuego?id=<%out.print(idjuego);%>"><img alt="alt_example" src="./system/juego/<%out.print(idjuego);%>-2.jpg" /></a></div>
+                <div class="img"><a href="ServletJuego?id=<%out.print(idjuego);%>"><img alt="alt_example" src="./system/juego/<%out.print(idjuego);%>-2.png" /></a></div>
                 <div class="info"> <a href="./post_game.html"><%out.print(nombre);%></a><br/>
                   <small>&iexcl;Revisalo!</small><br/>
                   <img alt="alt_example" src="./images/stars.png" /> </div>
@@ -311,11 +310,10 @@
                 <%
             if(miembros.size()>0)
 			{
-            	for(int contador=0;contador<imagenes.size();contador++)
+            	for(int contador=0;contador<miembros.size();contador++)
             	{
             		String[] datos= miembros.get(contador).split(regex);
-                    System.out.println(miembros.get(contador));
-                    String id=datos[0];
+                   String id=datos[0];
                     String nombre= datos[1];
                  if(!id.equals(session.getAttribute("idUsuario").toString()))
                  {
@@ -353,37 +351,37 @@
     <!--********************************************* Main advert end *********************************************--> 
 
     <!--********************************************* Footer start *********************************************-->
-    <div id="footer">
+ <div id="footer">
     <div class="row">
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+       <p>   <img alt="juego" src="./images/about_img.jpg" align="left" style="margin: 0px 15px 5px 0px; height:120px; width:100%;">Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
           a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/monster_logo_small.png" style="margin:11px 0px 0px 55px;" height="50px" width="105px"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        List<String> imagenes2= new ArrayList<String>();
-        imagenes2=ArregloDeDatos.ImagenesPie;
-		if(imagenes2.size()>0)
+         imagenes= new ArrayList<String>();
+        imagenes=ArregloDeDatos.ImagenesPie;
+		if(imagenes.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(int x=0;x<imagenes2.size();x++)
+          for(int x=0;x<imagenes.size();x++)
           {
-         String[] datos= imagenes2.get(x).split(regex);
-         System.out.println(imagenes2.get(x));
+         String[] datos= imagenes.get(x).split(regex);
+         System.out.println(imagenes.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.png" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

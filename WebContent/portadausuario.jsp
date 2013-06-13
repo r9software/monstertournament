@@ -27,7 +27,7 @@
   <div id="main_wrapper"> 
     
     <!--********************************************* Logo Start *********************************************-->
-    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png"  /></a>
+    <div id="logo"> <a href="#"><img alt="alt_example" src="./images/logo.png" height="165px" width="315px"  /></a>
       <div id="social_ctn"> 
       
       <a class="social_t"><img alt="alt_example" src="./images/social_tleft.png" /></a> 
@@ -52,7 +52,7 @@
     <div id="menu_wrapper">
       <div id="menu_left"></div>
       <ul id="menu">
-        <% 
+         <% 
 					if(session.getAttribute("nombreUsuario")==null){ 
 					
 						System.out.println(session.getAttribute("nombreUsuario"));
@@ -65,9 +65,8 @@
 					<%
 					response.sendRedirect("index.jsp");
 					}
-        			
 					else{ %>
-						<li><a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><img src="system/<%out.print(session.getAttribute("avatarUsuario")); %>" height=100px width=100px></img></a></li>
+						<a href="ServletPortada?id=<%out.print(session.getAttribute("idUsuario")); %>"><img src="system/<%out.print(session.getAttribute("avatarUsuario")); %>"  height=100px width=100px style="position:relative;bottom:50%;"></img></a>
 						<li ><a href="ServletPerfil?id=<%out.print(session.getAttribute("idUsuario")); %>"><%out.print(session.getAttribute("nombreUsuario")); %></a></li>
 						<li><a href="ServletAmigo?listarAmigos=<%out.print(session.getAttribute("idUsuario"));%>">Amigos</a></li>
 						<li><a href="ServletClan?listarClanes=all">Clanes</a></li>
@@ -142,7 +141,7 @@
 			        <p>
 			        <%out.print(valores[2]); %>
 			        </p>
-			        <div class="da-img"><img alt="juegoCaratula" src="system/juego/<%out.print(valores[3]); %>.jpg" width="610px" height="290px" /></div>
+			        <div class="da-img"><img alt="juegoCaratula" src="system/juego/<%out.print(valores[3]); %>.png" width="610px" height="290px" /></div>
 			      </div>
 			    <%	
 			    }
@@ -199,7 +198,7 @@
           <div class="image"><a href="#"><img alt="juego" src="system/images/<%out.print(posicion); %>lugar.png" height=81px width=100px/></a></div>
           <div class="content">
             <p><%out.print(descripcion); %></p>
-            <div class="info"> <a href="ServletPartida?id=<%out.print(partidaid);  %>" class="read_more">Ver Partida</a> </div>
+            <div class="info"> <a href="" class="read_more">Ver Partida</a>  </div>
           </div>
         </li>
         
@@ -229,34 +228,42 @@
        <div id="row"> 
         <!-- Left wrapper Start -->
         
-        <div id="left_wrapper">
-        <%
-      		if(JuegosUsuario.size()>0){
+         <div id="left_wrapper">
+          <%
+      		if(UltimosTorneos.size()>0){
 		    	  	%>
         <div class="header">
-            <h2><span>Juegos de <%out.print(session.getAttribute("nombreAmigo")); %>//</span> Mas info.</h2>
+            <h2><span>Torneos//</span> Mas info.</h2>
           </div>
           <ul id="general_news">
            <%
-           for(int x=0;x<JuegosUsuario.size();x++)
-           {
-		    	  	String valor= JuegosUsuario.get(x);
-		    	  	String[] juegoInfo= valor.split(regex);
-		    	  	String idjuego=juegoInfo[0];
-		    	  	String nombre= juegoInfo[1];
-		    	  	String descripcion= juegoInfo[2];
+           for(int x=0;x<UltimosTorneos.size();x++)
+		    {
+        	   System.out.println(UltimosTorneos.get(0));
+		    	String valor=UltimosTorneos.get(x);
+		    	String[] valores=valor.split(regex);
+		    	String idjuego=valores[3];
+		    	String idtorneo=valores[0];
+		    	String nombre=valores[1];
+		    	String descripcion= valores[2];
+		    	
+		    	
+		    	//juego.id, juego.nombre, torneo.id,"
+					//" torneo.nombre, torneo.descripcion, torneo.participantes," +
+					//" usuario.id, usuario.usuario, administrador.id, " +
+					// administrador.usuario, premio.id, premio.descripcion" +
 		      %>
             <li>
-              <div class="image"><a href="ServletJuego?id=<%out.print(idjuego); %>" ><img alt="alt_example" src="system/juego/<%out.print(idjuego); %>-1.jpg" /></a></div>
+              <div class="image"><a href="ServletJuego?id=<%out.print(idjuego); %>" ><img alt="alt_example" src="system/juego/<%out.print(idjuego); %>-1.png" /></a></div>
               <!--<ul class="social_share">
                 <li><a href="#"><img alt="alt_example" src="./images/fbk.png" border="0" /></a></li>
                 <li><a href="#"><img alt="alt_example" src="./images/twitter.png" border="0" /></a></li>
                 <li><a href="#"><img alt="alt_example" src="./images/more.png" border="0" /></a></li>
               </ul>-->
               <div class="info">
-                <h2><a href="ServletJuego?id=<%out.print(idjuego); %>" ><%out.print(nombre); %></a></h2>
+                <h2><a href="ServletTorneo?id=<%out.print(idtorneo); %>" ><%out.print(nombre); %></a></h2>
                 <p><%out.print(descripcion); %>...</p>
-                <a href="ServletJuego?id=<%out.print(idjuego); %>" class="read_more2">M&aacute;s sobre el juego</a> </div>
+                <a href="ServletTorneo?id=<%out.print(idtorneo); %>" class="read_more2">Ver M&aacute;s</a> </div>
                 <div class="clear">
               </div>
             </li>
@@ -276,18 +283,54 @@
           -->
           
           <div class="clear"></div>
-          
-           
-           <% 
-			      }else{
-		      			%>
-		      			<div class="header">
-		            <h2><span>Tus Juegos//</span>A&uacute;n no tiene juegos</h2>
-		          </div>
-		      			<%
-		      		}
-				    	   %>
-		</div>
+          <% 
+			      }
+      		else{
+      			%>
+      			<div class="header">
+            <h2><span>Tus Juegos//</span>A&uacute;n no tienes torneos</h2>
+          </div>
+      			<%
+      		}
+		    	   %>
+		     <!-- Leave a response Start -->
+    <div style="margin-left:10px;padding-left: 10px;padding-top: 20px;padding-bottom: 20px;  margin-top:50px; margin-bottom:50px;
+    background:white; ">
+                    <div id="response">
+                    	<h1>Envia una solicitud de amistad</h1>
+
+                        <form id="form" action="ServletSolicitarAmistad">
+                        	<div class="form_left">
+                           
+                                <label>Nombre <small><em>(requerido)</em></small></label>
+                                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] text-input" id="name" value="<%out.print(session.getAttribute("nombreUsuario"));%>"/>
+                             	<input type="hidden" name="idUsuario" value="<%out.print(session.getAttribute("idUsuario"));%>"/>
+	                            <input type="hidden" name="idAmigo" value="<%out.print(session.getAttribute("idAmigo"));%>"/>
+                             	
+                                <label>Email <small><em>(requerido para que te contacte)</em></small></label>
+                                <input name="email" type="text" class="validate[required,custom[email]] text-input" id="email" />
+                              
+                                <label>Sitio Web(facebook/twitter)</label>
+                                <input type="text" name="web" id="web" />
+                          
+                            </div>
+                            <div class="form_right">
+                            <p class="text">
+                            <label>Mensaje <small><em>(obligatorio)</em></small></label>
+                            <textarea name="text" class="validate[required,length[6,300]] text-input" id="comment" cols="10" rows="10">
+                            Hola soy <%out.print(session.getAttribute("nombreUsuario"));%> y me gustaria añadirte como amigo :)
+                            </textarea>
+                            </p>
+    						</div>
+                            
+                            <div class="form_submit"><input type="submit" value="Enviar" class="read_more2" />
+                            </div>
+                        </form>
+
+                    </div>
+         </div> 
+                    <!-- Leave a response end -->
+           </div>
         <!-- Left wrapper end --> 
          
         <!-- Right wrapper Start -->
@@ -297,6 +340,40 @@
             <input type="button" />
           </div> -->
            
+          		<div class="review">
+          <%
+            if(JuegosUsuario.size()>0){
+            	%>
+		            <div class="header"><a href="#"> Juegos</a></div>
+		            <ul>
+		           <% 
+		           for(int x=0;x<JuegosUsuario.size();x++)
+		           {
+				    	  	String valor= JuegosUsuario.get(x);
+				    	  	String[] juegoInfo= valor.split(regex);
+				    	  	String idjuego=juegoInfo[0];
+				    	  	String nombre= juegoInfo[1];
+				    	  	String descripcion= juegoInfo[2];
+				     
+            %>
+              <li>
+                <div class="img"><a href="ServletJuego?id=<%out.print(idjuego); %>"><img alt="juego" src="system/juego/<%out.print(idjuego); %>.png" /></a></div>
+                <div class="info"> <a href="ServletJuego?id=<%out.print(idjuego); %>"><%out.print(nombre); %></a><br/>
+                  <%/*<small>Descripcion: <%out.print(descripcion); </small><br/>*/%>
+                  <img alt="alt_example" src="./images/stars.png" /> </div>
+              </li>
+            <%
+	    	  	}%>
+            </ul>
+           <% 
+	    	  }else{
+	    		  %>
+	    		  <div class="header"><a href="#">A&uacute;n no tienes juegos</a></div>
+	    		  <%
+	    		  
+	    	  }
+            %> 
+          </div>
           		<div class="review">
           <%
             if(AmigosUsuario.size()>0){
@@ -396,43 +473,7 @@
         
         
       </div>
-    <!-- Leave a response Start -->
-    <div style="margin-left:50px;padding-left: 50px;padding-top: 20px;padding-bottom: 20px;  margin-top:50px; margin-bottom:50px;
-    background:white; width:50%;">
-                    <div id="response">
-                    	<h1>Envia una solicitud de amistad</h1>
-
-                        <form id="form" action="ServletSolicitarAmistad">
-                        	<div class="form_left">
-                           
-                                <label>Nombre <small><em>(requerido)</em></small></label>
-                                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] text-input" id="name" value="<%out.print(session.getAttribute("nombreUsuario"));%>"/>
-                             	<input type="hidden" name="idUsuario" value="<%out.print(session.getAttribute("idUsuario"));%>"/>
-	                            <input type="hidden" name="idAmigo" value="<%out.print(session.getAttribute("idAmigo"));%>"/>
-                             	
-                                <label>Email <small><em>(requerido para que te contacte)</em></small></label>
-                                <input name="email" type="text" class="validate[required,custom[email]] text-input" id="email" />
-                              
-                                <label>Sitio Web(facebook/twitter)</label>
-                                <input type="text" name="web" id="web" />
-                          
-                            </div>
-                            <div class="form_right">
-                            <p class="text">
-                            <label>Mensaje <small><em>(obligatorio)</em></small></label>
-                            <textarea name="text" class="validate[required,length[6,300]] text-input" id="comment" cols="10" rows="10">
-                            Hola soy <%out.print(session.getAttribute("nombreUsuario"));%> y me gustaria añadirte como amigo :)
-                            </textarea>
-                            </p>
-    						</div>
-                            
-                            <div class="form_submit"><input type="submit" value="Enviar" class="read_more2" />
-                            </div>
-                        </form>
-
-                    </div>
-         </div> 
-                    <!-- Leave a response end -->
+  
     <div class="bottom_shadow"></div>
   
     <!--********************************************* Main end *********************************************--> 
@@ -450,32 +491,32 @@
       <div class="footer_widget">
         <div class="header"><a href="#">Acerca de Monster Tournament</a></div>
         <div class="body">
-          <p><img alt="juego" src="./images/about_img.png" align="left" style="margin:0px 15px 5px 0px;"  />Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
+       <p>   <img alt="juego" src="./images/about_img.jpg" align="left" style="margin: 0px 15px 5px 0px; height:120px; width:100%;">Monster Tournament, es un sitio donde podr&aacute;s encontrar a gamers como t&uacute; dispuestos
           a demostrar qui&eacute;n es el mejor en su juego, organiza torneos y guerras de clanes, ademas compite por premios y mucho m&aacute;s.
           Disfruta compitiendo.</p>
-          <img alt="juego" src="./images/orizon_about.png" style="margin:11px 0px 0px 55px;"/></div>
+          <img alt="juego" src="./images/monster_logo_small.png" style="margin:11px 0px 0px 55px;" height="50px" width="105px"/></div>
       </div>
       <div class="divider_footer"></div>
       <div id="latest_media">
         <div class="header"><a href="#">Mejores Juegos</a></div>
         <div class="body">
         <%
-        List<String> imagenes2= new ArrayList<String>();
-        imagenes2=ArregloDeDatos.ImagenesPie;
-		if(imagenes2.size()>0)
+       List<String> imagenes= new ArrayList<String>();
+        imagenes=ArregloDeDatos.ImagenesPie;
+		if(imagenes.size()>0)
 		{
         	%>
           <ul id="l_media_list">
           <%
-          for(int x=0;x<imagenes2.size();x++)
+          for(int x=0;x<imagenes.size();x++)
           {
-         String[] datos= imagenes2.get(x).split(regex);
-         System.out.println(imagenes2.get(x));
+         String[] datos= imagenes.get(x).split(regex);
+         System.out.println(imagenes.get(x));
          String idjuego=datos[0];
          String nombre= datos[1];
          
           %>
-            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.jpg" height="204px" height="166px" /></a></li>
+            <li><a class="shadowbox"  rel="gallery" ><img alt="<%out.print(nombre);%>" src="system/juego/<%out.print(idjuego);%>-2.png" height="204px" height="166px" /></a></li>
             <%
             }
           	%>

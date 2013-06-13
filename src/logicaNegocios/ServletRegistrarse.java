@@ -84,14 +84,8 @@ public class ServletRegistrarse extends HttpServlet {
 			System.out.println("Datos guardados!!!");
 			int numero=0;
 			numero=UtilBasesUsuario.ultimoId();
-			if(numero!=0){
-				request.getSession().setAttribute("nombreUsuario",Datos.getUsuario() );
-				request.getSession().setAttribute("idUsuario",numero);
-				response.sendRedirect("ServletPortada?id="+numero);
-			}
-			else{
 			response.sendRedirect("ServletPortada?logout=true");
-			}
+			
 			}
 		}
 		else{
